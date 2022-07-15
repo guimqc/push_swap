@@ -14,5 +14,9 @@
 
 int	main(int argc, char *argv[])
 {
+	t_list	*head_a;
 
+	head_a = malloc(sizeof(t_list) * 1);
+	if (argc < 2)
+		ft_printf("push_swap needs a list of integer as arguments");
 }

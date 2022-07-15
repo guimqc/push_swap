@@ -10,7 +10,7 @@ NAME = push_swap
 
 RM = rm -rf
 
-MAKELIB = cd libft && make -s
+MAKELIB = cd libft && make bonus -s
 
 LIB = libft/libft.a
 
@@ -22,8 +22,10 @@ all: $(NAME)
 
 clean:
 	$(RM) $(OBJ)
+	cd libft && make clean -s
 
 fclean: clean
 	$(RM) $(NAME)
+	cd libft && make fclean -s
 
 re: fclean all
