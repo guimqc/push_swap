@@ -16,4 +16,10 @@
 # include "libft/libft.h"
 # include <stdlib.h>
 
+typedef struct s_node
+{
+	int				value;
+	struct s_list	*next;
+}	t_node;
+
 #endif
