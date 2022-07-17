@@ -1,4 +1,4 @@
-SRC = main.c # src/
+SRC = main.c src/lst_utils.c
 
 OBJ = $(SRC:%c=%o)
 
