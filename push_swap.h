@@ -24,6 +24,7 @@ typedef struct s_node
 }	t_node;
 
 // lst_utils
+t_node	*swap(t_node *head);
 t_node	*ft_lstlast_ps(t_node *node);
 
 #endif

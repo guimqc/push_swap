@@ -12,8 +12,10 @@
 
 #include "push_swap.h"
 
-void	print_lst(t_node *head)
+static void	print_lst(t_node *head)
 {
+	if (head == NULL)
+		return ;
 	while (head->next != NULL)
 	{
 		ft_printf("%i\n", head->value);
@@ -22,7 +24,7 @@ void	print_lst(t_node *head)
 	ft_printf("%i\n", head->value);
 }
 
-t_node	*init_stack_a(char **argv)
+static t_node	*init_stack_a(char **argv)
 {
 	int		i;
 	t_node	*head;
@@ -32,6 +34,7 @@ t_node	*init_stack_a(char **argv)
 	i = 1;
 	head = malloc(sizeof(t_node) * 1);
 	head->value = ft_atoi(argv[i]);
+	head->next = NULL;
 	while (argv[++i])
 	{
 		new_node = malloc(sizeof(t_node) * 1);
@@ -49,7 +52,13 @@ int	main(int argc, char *argv[])
 	t_node	*head_b;
 
 	if (argc < 2)
+	{
 		ft_printf("push_swap needs a list of integer as arguments\n");
+		return (42);
+	}
 	head_a = init_stack_a(argv);
+	print_lst(head_a);
+	ft_printf("***\n");
+	head_a = swap(head_a);
 	print_lst(head_a);
 }

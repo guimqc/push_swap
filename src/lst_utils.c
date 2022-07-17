@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 t_node	*ft_lstlast_ps(t_node *node)
 {
@@ -19,4 +20,18 @@ t_node	*ft_lstlast_ps(t_node *node)
 	while (node->next != NULL)
 		node = node->next;
 	return (node);
+}
+
+t_node	*swap(t_node *head)
+{
+	t_node	*new_head;
+
+	if (head == NULL)
+		return (NULL);
+	if (head->next == NULL)
+		return (head);
+	new_head = head->next;
+	head->next = head->next->next;
+	new_head->next = head;
+	return (new_head);
 }
