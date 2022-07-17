@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "push_swap.h"
 
-static void	print_lst(t_node *head)
+void	print_lst(t_node *head)
 {
 	if (head == NULL)
 		return ;
@@ -23,6 +24,8 @@ static void	print_lst(t_node *head)
 	}
 	ft_printf("%i\n", head->value);
 }
+
+// **********************************************
 
 static t_node	*init_stack_a(char **argv)
 {
@@ -59,6 +62,4 @@ int	main(int argc, char *argv[])
 	head_a = init_stack_a(argv);
 	print_lst(head_a);
 	ft_printf("***\n");
-	head_a = swap(head_a);
-	print_lst(head_a);
 }
