@@ -49,7 +49,7 @@ int	main(int argc, char *argv[])
 	t_node	*head_b;
 
 	if (argc < 2)
-		ft_printf("push_swap needs a list of integer as arguments\nleaks");
+		ft_printf("push_swap needs a list of integer as arguments\n");
 	head_a = init_stack_a(argv);
 	print_lst(head_a);
 }
