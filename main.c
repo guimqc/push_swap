@@ -60,8 +60,4 @@ int	main(int argc, char *argv[])
 	}
 	head_a = init_stack_a(argv);
 	print_lst(head_a);
-	head_a = rotate_up(head_a);
-	ft_printf("***\n");
-	print_lst(head_a);
-	ft_printf("***\n");
 }

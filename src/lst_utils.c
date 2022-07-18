@@ -40,6 +40,8 @@ t_node	*rotate_down(t_node *head)
 	t_node	*new_head;
 	t_node	*new_last;
 
+	if (head == NULL)
+		return (NULL);
 	if (head->next == NULL)
 		return (head);
 	new_head = ft_lstlast_ps(head);
@@ -56,6 +58,8 @@ t_node	*rotate_up(t_node *head)
 	t_node	*new_head;
 	t_node	*last_node;
 
+	if (head == NULL)
+		return (NULL);
 	if (head->next == NULL)
 		return (head);
 	new_head = head->next;
