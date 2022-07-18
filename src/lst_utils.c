@@ -50,3 +50,17 @@ t_node	*rotate_down(t_node *head)
 	new_head->next = head;
 	return (new_head);
 }
+
+t_node	*rotate_up(t_node *head)
+{
+	t_node	*new_head;
+	t_node	*last_node;
+
+	if (head->next == NULL)
+		return (head);
+	new_head = head->next;
+	last_node = ft_lstlast_ps(head);
+	last_node->next = head;
+	head->next = NULL;
+	return (new_head);
+}

@@ -26,6 +26,7 @@ typedef struct s_node
 // lst_utils
 t_node	*ft_lstlast_ps(t_node *node);
 t_node	*rotate_down(t_node *head);
+t_node	*rotate_up(t_node *head);
 t_node	*swap(t_node *head);
 
 void	print_lst(t_node *head);
