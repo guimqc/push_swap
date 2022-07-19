@@ -10,41 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "push_swap.h"
 
-void	print_lst(t_node *head)
-{
-	if (head == NULL)
-		return ;
-	while (head->next != NULL)
-	{
-		ft_printf("%i\n", head->value);
-		head = head->next;
-	}
-	ft_printf("%i\n", head->value);
-}
-
-// **********************************************
-
-static void	init_stack_a(t_node **head, char **argv)
+static void	init_stacks(t_node **head_a, t_node **head_b, char **argv)
 {
 	int		i;
 	t_node	*new_node;
 	t_node	*last_node;
 
 	i = 1;
-	*head = malloc(sizeof(t_node) * 1);
-	(*head)->value = ft_atoi(argv[i]);
-	(*head)->next = NULL;
+	*head_a = malloc(sizeof(t_node) * 1);
+	(*head_a)->value = ft_atoi(argv[i]);
+	(*head_a)->next = NULL;
 	while (argv[++i])
 	{
 		new_node = malloc(sizeof(t_node) * 1);
 		new_node->value = ft_atoi(argv[i]);
 		new_node->next = NULL;
-		last_node = ft_lstlast_ps(*head);
+		last_node = ft_lstlast_ps(*head_a);
 		last_node->next = new_node;
 	}
+	*head_b = NULL;
 }
 
 int	main(int argc, char *argv[])
@@ -57,10 +43,7 @@ int	main(int argc, char *argv[])
 		ft_printf("push_swap needs a list of integer as arguments\n");
 		return (42);
 	}
-	init_stack_a(&head_a, argv);
-	print_lst(head_a);
-	ft_printf("****\n");
-	swap(&head_a);
-	print_lst(head_a);
-	ft_printf("****\n");
+	init_stacks(&head_a, &head_b, argv);
+	free_lst(head_a);
+	free_lst(head_b);
 }

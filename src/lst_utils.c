@@ -12,6 +12,33 @@
 
 #include "../push_swap.h"
 
+void	print_lst(t_node *head)
+{
+	if (head == NULL)
+		return ;
+	while (head->next != NULL)
+	{
+		ft_printf("%i\n", head->value);
+		head = head->next;
+	}
+	ft_printf("%i\n", head->value);
+}
+
+void	free_lst(t_node *head)
+{
+	t_node	*tmp;
+
+	if (head == NULL)
+		return ;
+	while (head->next)
+	{
+		tmp = head->next;
+		free(head);
+		head = tmp;
+	}
+	free(head);
+}
+
 t_node	*ft_lstlast_ps(t_node *node)
 {
 	if (!node)
@@ -19,52 +46,4 @@ t_node	*ft_lstlast_ps(t_node *node)
 	while (node->next != NULL)
 		node = node->next;
 	return (node);
-}
-
-void	swap(t_node **head)
-{
-	t_node	*new_head;
-
-	if (*head == NULL)
-		return ;
-	if ((*head)->next == NULL)
-		return ;
-	new_head = (*head)->next;
-	(*head)->next = (*head)->next->next;
-	new_head->next = *head;
-	*head = new_head;
-}
-
-void	rotate_down(t_node **head)
-{
-	t_node	*new_head;
-	t_node	*new_last;
-
-	if (head == NULL)
-		return ;
-	if ((*head)->next == NULL)
-		return ;
-	new_head = ft_lstlast_ps(*head);
-	new_last = *head;
-	while (new_last->next->next != NULL)
-		new_last = new_last->next;
-	new_last->next = NULL;
-	new_head->next = *head;
-	*head = new_head;
-}
-
-void	rotate_up(t_node **head)
-{
-	t_node	*new_head;
-	t_node	*last_node;
-
-	if (head == NULL)
-		return ;
-	if ((*head)->next == NULL)
-		return ;
-	new_head = (*head)->next;
-	last_node = ft_lstlast_ps(*head);
-	last_node->next = *head;
-	(*head)->next = NULL;
-	*head = new_head;
 }
