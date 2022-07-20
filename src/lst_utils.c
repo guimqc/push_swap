@@ -12,6 +12,36 @@
 
 #include "../push_swap.h"
 
+void	init_stacks(t_node **head_a, t_node **head_b, char **argv)
+{
+	int		i;
+	t_node	*new_node;
+	t_node	*last_node;
+
+	i = 1;
+	*head_a = malloc(sizeof(t_node) * 1);
+	(*head_a)->value = ft_atoi(argv[i]);
+	(*head_a)->next = NULL;
+	while (argv[++i])
+	{
+		new_node = malloc(sizeof(t_node) * 1);
+		new_node->value = ft_atoi(argv[i]);
+		new_node->next = NULL;
+		last_node = ft_lstlast_ps(*head_a);
+		last_node->next = new_node;
+	}
+	*head_b = NULL;
+}
+
+t_node	*ft_lstlast_ps(t_node *node)
+{
+	if (!node)
+		return (node);
+	while (node->next != NULL)
+		node = node->next;
+	return (node);
+}
+
 void	print_lst(t_node *head)
 {
 	if (head == NULL)
@@ -37,13 +67,4 @@ void	free_lst(t_node *head)
 		head = tmp;
 	}
 	free(head);
-}
-
-t_node	*ft_lstlast_ps(t_node *node)
-{
-	if (!node)
-		return (node);
-	while (node->next != NULL)
-		node = node->next;
-	return (node);
 }

@@ -26,6 +26,7 @@ typedef struct s_node
 // lst_utils
 void	free_lst(t_node *head);
 void	print_lst(t_node *head);
+void	init_stacks(t_node **head_a, t_node **head_b, char **argv);
 t_node	*ft_lstlast_ps(t_node *node);
 
 // instructions
