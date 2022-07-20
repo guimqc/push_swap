@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "push_swap.h"
 
 static void	init_stacks(t_node **head_a, t_node **head_b, char **argv)
@@ -44,6 +45,17 @@ int	main(int argc, char *argv[])
 		return (42);
 	}
 	init_stacks(&head_a, &head_b, argv);
+	ft_printf("initial stack a:\n");
+	print_lst(head_a);
+
+	pb(&head_a, &head_b);
+	pb(&head_a, &head_b);
+	pb(&head_a, &head_b);
+	ft_printf("stack a:\n");
+	print_lst(head_a);
+	ft_printf("stack b:\n");
+	print_lst(head_b);
+
 	free_lst(head_a);
 	free_lst(head_b);
 }

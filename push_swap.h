@@ -28,10 +28,17 @@ void	free_lst(t_node *head);
 void	print_lst(t_node *head);
 t_node	*ft_lstlast_ps(t_node *node);
 
-// movement
-void	push(t_node **from, t_node **to);
-void	rotate_down(t_node **head);
-void	rotate_up(t_node **head);
-void	swap(t_node **head);
+// instructions
+void	sa(t_node **head_a);
+void	sb(t_node **head_b);
+void	ss(t_node **head_a, t_node **head_b);
+void	ra(t_node **head_a);
+void	rb(t_node **head_b);
+void	rr(t_node **head_a, t_node **head_b);
+void	rra(t_node **head_a);
+void	rrb(t_node **head_b);
+void	rrr(t_node **head_a, t_node **head_b);
+void	pa(t_node **head_a, t_node **head_b);
+void	pb(t_node **head_a, t_node **head_b);
 
 #endif
