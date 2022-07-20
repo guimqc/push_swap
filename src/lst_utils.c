@@ -12,25 +12,15 @@
 
 #include "../push_swap.h"
 
-void	init_stacks(t_node **head_a, t_node **head_b, char **argv)
+int	is_sorted(t_node *head)
 {
-	int		i;
-	t_node	*new_node;
-	t_node	*last_node;
-
-	i = 1;
-	*head_a = malloc(sizeof(t_node) * 1);
-	(*head_a)->value = ft_atoi(argv[i]);
-	(*head_a)->next = NULL;
-	while (argv[++i])
+	while (head->next != NULL)
 	{
-		new_node = malloc(sizeof(t_node) * 1);
-		new_node->value = ft_atoi(argv[i]);
-		new_node->next = NULL;
-		last_node = ft_lstlast_ps(*head_a);
-		last_node->next = new_node;
+		if (head->value > head->next->value)
+			return (0);
+		head = head->next;
 	}
-	*head_b = NULL;
+	return (1);
 }
 
 t_node	*ft_lstlast_ps(t_node *node)

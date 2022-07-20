@@ -12,6 +12,27 @@
 
 #include "push_swap.h"
 
+void	init_stacks(t_node **head_a, t_node **head_b, char **argv)
+{
+	int		i;
+	t_node	*new_node;
+	t_node	*last_node;
+
+	i = 1;
+	*head_a = malloc(sizeof(t_node) * 1);
+	(*head_a)->value = ft_atoi(argv[i]);
+	(*head_a)->next = NULL;
+	while (argv[++i])
+	{
+		new_node = malloc(sizeof(t_node) * 1);
+		new_node->value = ft_atoi(argv[i]);
+		new_node->next = NULL;
+		last_node = ft_lstlast_ps(*head_a);
+		last_node->next = new_node;
+	}
+	*head_b = NULL;
+}
+
 int	main(int argc, char *argv[])
 {
 	t_node	*head_a;
@@ -25,14 +46,6 @@ int	main(int argc, char *argv[])
 	init_stacks(&head_a, &head_b, argv);
 	ft_printf("initial stack a:\n");
 	print_lst(head_a);
-
-	pb(&head_a, &head_b);
-	pb(&head_a, &head_b);
-	pb(&head_a, &head_b);
-	ft_printf("stack a:\n");
-	print_lst(head_a);
-	ft_printf("stack b:\n");
-	print_lst(head_b);
 
 	free_lst(head_a);
 	free_lst(head_b);
