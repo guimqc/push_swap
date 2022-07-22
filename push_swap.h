@@ -25,12 +25,6 @@ typedef struct s_node
 //init
 void	init_stacks(t_node **head_a, t_node **head_b, char **argv, int argc);
 
-// lst_utils
-void	free_lst(t_node *head);
-void	print_lst(t_node *head);
-int		is_sorted(t_node *head);
-t_node	*ft_lstlast_ps(t_node *node);
-
 // solve
 void	solve3(t_node **head_a, t_node **head_b);
 
@@ -46,5 +40,11 @@ void	rrb(t_node **head_b);
 void	rrr(t_node **head_a, t_node **head_b);
 void	pa(t_node **head_a, t_node **head_b);
 void	pb(t_node **head_a, t_node **head_b);
+
+// lst_utils
+void	free_lst(t_node *head);
+void	print_lst(t_node *head);
+int		is_sorted(t_node *head);
+t_node	*ft_lstlast_ps(t_node *node);
 
 #endif
