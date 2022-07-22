@@ -12,7 +12,35 @@
 
 #include "push_swap.h"
 
-void	init_stacks(t_node **head_a, t_node **head_b, char **argv)
+void	error(t_node *head_a, t_node *head_b)
+{
+	ft_printf("Error\n");
+	free_lst(head_a);
+	free_lst(head_b);
+	exit(0);
+}
+
+static int	is_duplicate(t_node *head_a, int argc)
+{
+	int	*map;
+
+	map = ft_calloc(argc, sizeof(int));
+	while (head_a)
+	{
+		if (map[head_a->value] == 1)
+		{
+			free(map);
+			return (1);
+		}
+		else
+			map[head_a->value] = 1;
+		head_a = head_a->next;
+	}
+	free(map);
+	return (0);
+}
+
+static void	init_stacks(t_node **head_a, t_node **head_b, char **argv, int argc)
 {
 	int		i;
 	t_node	*new_node;
@@ -31,6 +59,8 @@ void	init_stacks(t_node **head_a, t_node **head_b, char **argv)
 		last_node->next = new_node;
 	}
 	*head_b = NULL;
+	if (is_duplicate(*head_a, argc))
+		error(*head_a, *head_b);
 }
 
 int	main(int argc, char *argv[])
@@ -39,14 +69,11 @@ int	main(int argc, char *argv[])
 	t_node	*head_b;
 
 	if (argc < 2)
-	{
-		ft_printf("push_swap needs a list of integer as arguments\n");
 		return (42);
-	}
-	init_stacks(&head_a, &head_b, argv);
-	ft_printf("initial stack a:\n");
+	init_stacks(&head_a, &head_b, argv, argc);
 	print_lst(head_a);
-
+	if (argc == 4)
+		solve3(&head_a, &head_b);
 	free_lst(head_a);
 	free_lst(head_b);
 }

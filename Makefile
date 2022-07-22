@@ -1,4 +1,4 @@
-SRC = main.c src/lst_utils.c src/swap.c src/push.c src/rotate.c src/rrotate.c
+SRC = main.c src/lst_utils.c src/swap.c src/push.c src/rotate.c src/rrotate.c src/solve3.c
 
 OBJ = $(SRC:%c=%o)
 

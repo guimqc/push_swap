@@ -12,6 +12,15 @@
 
 #include "../push_swap.h"
 
+t_node	*ft_lstlast_ps(t_node *node)
+{
+	if (!node)
+		return (node);
+	while (node->next != NULL)
+		node = node->next;
+	return (node);
+}
+
 int	is_sorted(t_node *head)
 {
 	while (head->next != NULL)
@@ -21,15 +30,6 @@ int	is_sorted(t_node *head)
 		head = head->next;
 	}
 	return (1);
-}
-
-t_node	*ft_lstlast_ps(t_node *node)
-{
-	if (!node)
-		return (node);
-	while (node->next != NULL)
-		node = node->next;
-	return (node);
 }
 
 void	print_lst(t_node *head)

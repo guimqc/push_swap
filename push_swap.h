@@ -15,13 +15,17 @@
 
 # include "libft/libft.h"
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef struct s_node
 {
 	int				value;
 	struct s_node	*next;
 }	t_node;
+
+void	error(t_node *head_a, t_node *head_b);
+
+// solve
+void	solve3(t_node **head_a, t_node **head_b);
 
 // lst_utils
 void	free_lst(t_node *head);
