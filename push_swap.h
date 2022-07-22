@@ -26,7 +26,7 @@ typedef struct s_node
 void	init_stacks(t_node **head_a, t_node **head_b, char **argv, int argc);
 
 // solve
-void	solve3(t_node **head_a, t_node **head_b);
+void	solve3(t_node **head_a);
 
 // instructions
 void	sa(t_node **head_a);

@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	solve3(t_node **head_a, t_node **head_b)
+void	solve3(t_node **head)
 {
 	
 }

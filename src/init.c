@@ -28,8 +28,10 @@ static int	verify_args_are_ints(char **argv, int argc)
 	while (argv[++i])
 	{
 		while (argv[i][++j])
-			if (!ft_isdigit(argv[i][j]))
+		{
+			if (!(j == 0 && argv[i][j] == '-') && (!ft_isdigit(argv[i][j])))
 				return (0);
+		}
 		j = -1;
 	}
 	return (1);
