@@ -22,19 +22,17 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-void	error(t_node *head_a, t_node *head_b);
-
 //init
 void	init_stacks(t_node **head_a, t_node **head_b, char **argv, int argc);
-
-// solve
-void	solve3(t_node **head_a, t_node **head_b);
 
 // lst_utils
 void	free_lst(t_node *head);
 void	print_lst(t_node *head);
 int		is_sorted(t_node *head);
 t_node	*ft_lstlast_ps(t_node *node);
+
+// solve
+void	solve3(t_node **head_a, t_node **head_b);
 
 // instructions
 void	sa(t_node **head_a);

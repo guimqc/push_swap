@@ -12,14 +12,6 @@
 
 #include "push_swap.h"
 
-void	error(t_node *head_a, t_node *head_b)
-{
-	ft_printf("Error\n");
-	free_lst(head_a);
-	free_lst(head_b);
-	exit(0);
-}
-
 int	main(int argc, char *argv[])
 {
 	t_node	*head_a;
